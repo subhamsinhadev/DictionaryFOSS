@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Dictionary"
+ />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieIcon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:lottie_rawRes="@raw/dictionary"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_speed="1.0"
+        android:layout_gravity="center" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+
+        android:layout_marginTop="10dp"
+        android:hint="Enter Your Word">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/input"
+            android:gravity="left|center"
+            android:padding="15dp"
+            android:completionThreshold="1"
+            android:layout_height="45dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/searchAnim"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:lottie_rawRes="@raw/search"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_speed="1.0"
+        android:layout_gravity="center" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/search"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        tools:layout_editor_absoluteX="145dp"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        tools:layout_editor_absoluteY="446dp"
+        tools:ignore="VisualLintButtonSize" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/ShapeAppearanceOverlay.Material3.Chip"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:gravity="left|center"
+        android:layout_marginTop="10dp"
+        android:id="@+id/result"
+        android:text="Result will be displayed here......"
+
+        />
+
+</LinearLayout>
