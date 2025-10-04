@@ -17,8 +17,8 @@
  />
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieIcon"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         app:lottie_rawRes="@raw/dictionary"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
@@ -71,5 +71,7 @@
         android:text="Result will be displayed here......"
 
         />
+
+
 
 </LinearLayout>

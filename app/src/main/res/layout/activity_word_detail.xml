@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    android:paddingBottom="24dp"
+    tools:context=".WordDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header Card: Word & Audio -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:strokeColor="?attr/colorOutline"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- Word -->
+                <TextView
+                    android:id="@+id/text_word"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="zebra"
+                    android:textAppearance="?attr/textAppearanceHeadlineLarge"
+                    android:textColor="?attr/colorPrimary"/>
+<!--                    android:fontFamily="@font/roboto_medium"/>-->
+
+                <!-- Phonetic + Audio -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/text_phonetic"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="/ˈziːbɹə/"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_play_audio"
+                        style="@style/Widget.Material3.Button.IconButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:icon="@drawable/graphic_eq_24px"
+                        app:iconTint="?attr/colorPrimary"
+                        android:contentDescription="Play pronunciation audio"
+                        android:tooltipText="Play pronunciation"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Definitions Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Definitions"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:textColor="?attr/colorOnSurface"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Meaning Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:strokeColor="?attr/colorOutline"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Part of Speech -->
+                <TextView
+                    android:id="@+id/text_part_of_speech_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="noun"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:textColor="?attr/colorSecondary"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Definitions -->
+                <LinearLayout
+                    android:id="@+id/layout_definitions_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Example Definition -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1. Any of three species of genus Equus: E. grevyi, E. quagga, or E. zebra, all with black and white stripes and native to Africa."
+                        android:layout_marginBottom="8dp"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurface"/>
+                    <!-- Add more definitions dynamically in your activity -->
+                </LinearLayout>
+
+                <!-- Synonyms -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Synonyms"
+                    android:textAppearance="?attr/textAppearanceTitleSmall"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group_synonyms_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:singleLine="false"
+                    app:chipSpacing="8dp">
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.Material3.Chip.Suggestion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="fascinoma"/>
+                </com.google.android.material.chip.ChipGroup>
+
+                <!-- Antonyms -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Antonyms"
+                    android:textAppearance="?attr/textAppearanceTitleSmall"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group_antonyms_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:singleLine="false"
+                    app:chipSpacing="8dp">
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.Material3.Chip.Suggestion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="None found"/>
+                </com.google.android.material.chip.ChipGroup>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Source Footer -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="16dp"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Source:"
+                android:textAppearance="?attr/textAppearanceLabelMedium"
+                android:textColor="?attr/colorOnSurfaceVariant"/>
+
+            <TextView
+                android:id="@+id/text_source_url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="https://en.wiktionary.org/wiki/zebra"
+                android:textColor="?attr/colorPrimary"
+                android:textStyle="italic"
+                android:autoLink="web"
+                android:textAppearance="?attr/textAppearanceLabelMedium"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:padding="16dp"
+            android:layout_marginTop="8dp">
+
+            <!-- Favorite Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_favorite"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/favou"
+                app:iconTint="?attr/colorPrimary"
+                android:contentDescription="Add to favorites"
+                android:text="Add to favorites"/>
+
+            <!-- Spacer -->
+            <Space
+                android:layout_width="16dp"
+                android:layout_height="wrap_content"/>
+
+            <!-- Share Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_share"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/share_24px"
+                app:iconTint="?attr/colorPrimary"
+                android:contentDescription="Share word"
+                android:text="Share word"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Bottom Action Buttons -->
+
+</androidx.core.widget.NestedScrollView>

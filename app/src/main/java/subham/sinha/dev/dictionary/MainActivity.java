@@ -1,16 +1,19 @@
 package subham.sinha.dev.dictionary;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -45,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         DynamicColors.applyToActivityIfAvailable(MainActivity.this);
         setContentView(R.layout.activity_main);
+        Intent i=new Intent(MainActivity.this, WordDetailActivity.class);
+       startActivity(i);
         search = findViewById(R.id.search);
         result = findViewById(R.id.result);
         input = findViewById(R.id.input);
@@ -196,9 +201,23 @@ public class MainActivity extends AppCompatActivity {
                             antonyms.append("None");
                         }
 
-                        String finalResult = "Definition: " + definition + "\n\n" +
-                                "Synonyms: " + synonyms.toString().replaceAll(", $", "") + "\n\n" +
-                                "Antonyms: " + antonyms.toString().replaceAll(", $", "");
+
+
+                        SpannableStringBuilder finalResult = new SpannableStringBuilder();
+
+// Definition
+                        finalResult.append("Definition: ", new StyleSpan(Typeface.BOLD), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        finalResult.append(definition + "\n\n");
+
+// Synonyms
+                        finalResult.append("Synonyms: ", new StyleSpan(Typeface.BOLD), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        finalResult.append(synonyms.toString().replaceAll(", $", "") + "\n\n");
+
+// Antonyms
+                        finalResult.append("Antonyms: ", new StyleSpan(Typeface.BOLD), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        finalResult.append(antonyms.toString().replaceAll(", $", ""));
+
+
 
                         runOnUiThread(() -> {
                             result.setText(finalResult);
