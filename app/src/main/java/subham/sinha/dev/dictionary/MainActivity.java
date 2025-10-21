@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 String word = input.getText().toString();
                 if (!input.getText().toString().isEmpty()) {
                     search.setEnabled(false);
+
                     searchAnim.setVisibility(View.VISIBLE);
 
                     subWord(word);
